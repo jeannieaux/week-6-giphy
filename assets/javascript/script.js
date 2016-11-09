@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+// I was going to loop through the array and assign a button to each. However, I was unable to 
+// so I created the actual buttons on the html page.
+
 /*var topics = [ "Happy", 
                  "Sad", 
                  "Mad", 
@@ -38,7 +41,7 @@ $('button').on('click',function(){
         
 
         for (var i = 0; i < response.data.length; i++){
-        $('#emotionPics').prepend("<button>"+response.data[i].rating+"</button>")
+        $('#emotionPics').prepend("<button>Rating:"+response.data[i].rating+"</button>")
        // $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
         $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small.url+"'>")
 
@@ -51,8 +54,10 @@ $('button').on('click',function(){
           
 });
 
+// This code was supposed to return a value from th einput box and perform the same function above.
+// Unfortunately, does not work properly.
 
-$('#more').on("click", function(){
+/*$('#more').on("click", function(){
 
         var grabGif = $('#emotionalInput').val();
         var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ grabGif +"&api_key=dc6zaTOxFJmzC&limit=10";
@@ -67,7 +72,8 @@ $('#more').on("click", function(){
         
 
         for (var i = 0; i < response.data.length; i++){
-        $('#emotionPics').prepend("<button>"+response.data[i].rating+"</button>")
+
+        $('#emotionPics').prepend("<button>" +response.data[i].rating+"</button>")
        // $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
         $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small.url+"'>")
 
@@ -76,4 +82,4 @@ $('#more').on("click", function(){
                 })
 
            });
-
+*/
