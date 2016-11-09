@@ -29,7 +29,7 @@ $('button').on('click',function(){
 
        
         var randomSearch = $(this).data("search");
-        var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ randomSearch +"&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?q="+ randomSearch +"&api_key=dc6zaTOxFJmzC&limit=10";
 
 
 
