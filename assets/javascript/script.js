@@ -23,46 +23,57 @@ for (var i =0; i < topics.length; i++){
 */
 
 $('button').on('click',function(){
-        var randomSearch = $(this).data("search");
 
+       
+        var randomSearch = $(this).data("search");
         var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ randomSearch +"&api_key=dc6zaTOxFJmzC&limit=10";
+
+
+
 
      $.ajax({url:queryUrl,method:'GET' }) 
      .done(function(response){
         console.log(response);
+
+        
+
         for (var i = 0; i < response.data.length; i++){
-        $('#emotionPics').append("<p>"+response.data[i].rating+"</p>");
-        $('#emotionPics').append("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
-     
-}
-})
+        $('#emotionPics').prepend("<button>"+response.data[i].rating+"</button>")
+       // $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
+        $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small.url+"'>")
 
-})
+    
+                       }
+                })
 
-        function searchGiphy(searchQuery) {
-        
-       //var task = $('#emotionalInput').val().trim();
-        
+           })
 
-        var querySearch = "http://api.giphy.com/v1/gifs/search?q="+ searchQuery +"&api_key=dc6zaTOxFJmzC&limit=10";
-        
-        
-
-        $.ajax({url:querySearch,method:'GET' }) 
-        .done(function(response){
-        console.log(response);
-        for (var i = 0; i < response.data.length; i++){
-        $('#emotionPics').append("<p>"+response.data[i].rating+"</p>");
-        $('#emotionPics').append("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
-     }   
-}
-})
-       
-})
-   $('#more').on('click',function(){    
-        
-       var task = $('#emotionalInput').val().trim();
-
-       searchGiphy(task);
-       })   
+          
 });
+
+
+$('#more').on("click", function(){
+
+        var grabGif = $('#emotionalInput').val();
+        var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ grabGif +"&api_key=dc6zaTOxFJmzC&limit=10";
+
+
+
+
+        $.ajax({url:queryUrl,method:'GET' }) 
+        .done(function(response){
+        
+
+        
+
+        for (var i = 0; i < response.data.length; i++){
+        $('#emotionPics').prepend("<button>"+response.data[i].rating+"</button>")
+       // $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
+        $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small.url+"'>")
+
+    
+                       }
+                })
+
+           });
+
