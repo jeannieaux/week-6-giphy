@@ -29,7 +29,7 @@ $('button').on('click',function(){
 
        
         var randomSearch = $(this).data("search");
-        var queryUrl = "//api.giphy.com/v1/gifs/search?q="+ randomSearch +"&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ randomSearch +"&api_key=dc6zaTOxFJmzC&limit=10";
 
 
 
@@ -39,7 +39,7 @@ $('button').on('click',function(){
         console.log(response);
 
         
-s
+
         for (var i = 0; i < response.data.length; i++){
         $('#emotionPics').prepend("<button>Rating:"+response.data[i].rating+"</button>")
        // $('#emotionPics').prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");
